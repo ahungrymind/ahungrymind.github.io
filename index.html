@@ -1,85 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
-    <style>
-        /* Base styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', 'Roboto', sans-serif;
-            background-color: #ffffff;
-            color: #111111;
-            scroll-behavior: smooth;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Blog</title>
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      scroll-behavior: smooth;
+    }
 
-        /* Centered launch content */
-        .intro {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
+    /* Navigation bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      z-index: 1000;
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 12px 12px;
+      display: flex;
+      gap: 2rem;
+      font-weight: 600;
+    }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+    nav a {
+      color: #111111;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
 
-        p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #d8b4f8; /* pastel purple */
+      transition: width 0.3s ease;
+    }
 
-        .btn {
-            padding: 0.75rem 1.5rem;
-            background-color: #d8b4f8; /* pastel purple */
-            color: #111111;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
+    nav a:hover,
+    nav a:focus {
+      color: #6b21a8; /* deeper purple on hover */
+    }
 
-        .btn:hover {
-            background-color: #c084fc;
-        }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
 
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            font-size: 0.9rem;
-            color: #555;
-        }
-    </style>
+    /* Add top padding so content isn't hidden behind fixed nav */
+    body > .intro:first-of-type {
+      padding-top: 4rem;
+    }
+
+    /* Centered launch content */
+    .intro {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      background-color: #d8b4f8; /* pastel purple */
+      color: #111111;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #c084fc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="intro">
-        <h1>Welcome to My Blog</h1>
-        <p>
-            A small corner of the internet where I share my thoughts, explore ideas, reflect on life, and occasionally ramble about food and philosophy. It’s a space to be curious, reflective, and maybe a little bit playful.
-        </p>
-        <a href="#more" class="btn">Enter</a>
-    </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <div id="more" class="intro" style="background-color: #fafafa;">
-        <h1>More to Come</h1>
-        <p>
-            The full site is under construction. Stay tuned for articles, essays, and reflections as I build this out.
-        </p>
-    </div>
+  <div class="intro">
+    <h1>Welcome to My Blog</h1>
+    <p>
+      A small corner of the internet where I share my thoughts, explore ideas, reflect on life, and occasionally ramble about food and philosophy. It’s a space to be curious, reflective, and maybe a little bit playful.
+    </p>
+    <a href="#more" class="btn">Enter</a>
+  </div>
 
-    <footer>
-        &copy; 2025 My Blog. All rights reserved.
-    </footer>
+  <div id="more" class="intro" style="background-color: #fafafa;">
+    <h1>More to Come</h1>
+    <p>
+      The full site is under construction. Stay tuned for articles, essays, and reflections as I build this out.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 My Blog. All rights reserved.
+  </footer>
 
 </body>
 </html>
