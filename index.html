@@ -17,28 +17,20 @@
 
     /* Navigation bar */
     nav {
-      /* position: fixed; */
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: auto;
+      width: 100%;
       background-color: white;
-      /* Removed shadow */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      z-index: 1000;
-      padding: 1rem 2rem; /* increased padding for bigger nav bar */
-      border-radius: 0 0 12px 12px;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
       display: flex;
-      gap: 3rem; /* more spacing between links */
+      justify-content: center;
+      gap: 3rem;
       font-weight: 750;
-      font-size: 1.5rem; /* bigger font size */
+      font-size: 1.5rem;
     }
 
     nav a {
       color: #111111;
       text-decoration: none;
-      font-size: 1.25rem; /* bigger font size */
-      padding: 0.5rem 0;
       position: relative;
       transition: color 0.3s ease;
     }
@@ -48,25 +40,20 @@
       position: absolute;
       width: 0%;
       height: 2px;
-      bottom: 0;
+      bottom: -5px;
       left: 0;
-      background-color: #d8b4f8; /* pastel purple */
+      background-color: #d8b4f8;
       transition: width 0.3s ease;
     }
 
     nav a:hover,
     nav a:focus {
-      color: #6b21a8; /* deeper purple on hover */
+      color: #6b21a8;
     }
 
     nav a:hover::after,
     nav a:focus::after {
       width: 100%;
-    }
-
-    /* Add top padding so content isn't hidden behind fixed nav */
-    body > .intro:first-of-type {
-      padding-top: 6rem; /* increased to match bigger nav */
     }
 
     /* Centered launch content */
@@ -95,7 +82,7 @@
 
     .btn {
       padding: 0.75rem 1.5rem;
-      background-color: #d8b4f8; /* pastel purple */
+      background-color: #d8b4f8;
       color: #111111;
       text-decoration: none;
       border-radius: 50px;
