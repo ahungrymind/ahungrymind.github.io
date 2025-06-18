@@ -26,6 +26,11 @@
       gap: 3rem;
       font-weight: 750;
       font-size: 1.5rem;
+
+      position: fixed;   /* <-- This makes it stay on top while scrolling */
+      top: 0;
+      left: 0;
+      z-index: 999;      /* <-- Makes sure it stays above other content */
     }
 
     nav a {
