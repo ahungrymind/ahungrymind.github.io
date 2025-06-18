@@ -1,1 +1,264 @@
-hellow knowledge
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Hungry Mind: Trivia Tadbits</title>
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation bar */
+    nav {
+      width: 100%;
+      background-color: white;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-weight: 750;
+      font-size: 1.5rem;
+
+      position: fixed;   /* Fixed on top */
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #111111;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #d8b4f8;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #6b21a8;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    /* Give space below fixed nav */
+    .intro {
+      padding: 6rem 20px 0.5rem 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Tabs container */
+    .tabs {
+      width: 100%;
+      margin: 2rem auto 4rem auto;
+      padding: 0.5rem 10% 4rem 10%;
+      box-sizing: border-box;
+    }
+
+    /* Each tab item */
+    .tab {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgb(216 180 248 / 0.2);
+      background: #fafafa;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .tab:hover {
+      box-shadow: 0 4px 12px rgb(216 180 248 / 0.4);
+    }
+
+    /* Tab header */
+    .tab-header {
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      background-color: white;
+      color: #6b21a8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    /* Arrow icon */
+    .tab-header .arrow {
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    /* Rotate arrow when active */
+    .tab-header.active .arrow {
+      transform: rotate(90deg);
+    }
+
+    /* Tab content - collapsed by default */
+    .tab-content {
+      max-height: 0;
+      padding: 0 1.5rem;
+      overflow: hidden;
+      background-color: white;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #333;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    /* Expanded content */
+    .tab-content.active {
+      padding: 1rem 1.5rem 1.5rem 1.5rem;
+      max-height: 1000px; /* large enough to fit content */
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://ahungrymind.github.io/">Home</a>
+    <a href="https://ahungrymind.github.io/yumandfun/">Food and Travel</a>
+    <a href="https://ahungrymind.github.io/reflect/">Love and Life</a>
+    <a href="https://ahungrymind.github.io/stories/">Short Stories</a>
+    <a href="https://ahungrymind.github.io/knowledge/">Trivia Tidbits</a>
+  </nav>
+
+  <section class="intro">
+    <h1>Hello Knowledge.</h1>
+    <p>
+      Dive into thoughts, ideas, and stories that stir curiosity and spark joy. Click on the tabs below to explore different topics.
+    </p>
+  </section>
+
+  <section class="tabs" aria-label="Expandable tab sections">
+
+    <article class="tab">
+      <header class="tab-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tab1-content" id="tab1-header">
+        Food & Travel
+        <span class="arrow">▶</span>
+      </header>
+      <div id="tab1-content" class="tab-content" role="region" aria-labelledby="tab1-header">
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
+        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. </p>
+      </div>
+    </article>
+
+    <article class="tab">
+      <header class="tab-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tab2-content" id="tab2-header">
+        Love & Life
+        <span class="arrow">▶</span>
+      </header>
+      <div id="tab2-content" class="tab-content" role="region" aria-labelledby="tab2-header">
+        <p>Reflections on relationships, personal growth, and the small things that make life meaningful.</p>
+      </div>
+    </article>
+
+    <article class="tab">
+      <header class="tab-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tab3-content" id="tab3-header">
+        Short Stories
+        <span class="arrow">▶</span>
+      </header>
+      <div id="tab3-content" class="tab-content" role="region" aria-labelledby="tab3-header">
+        <p>A collection of brief, whimsical, and thought-provoking stories to brighten your day.</p>
+      </div>
+    </article>
+
+    <article class="tab">
+      <header class="tab-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tab4-content" id="tab4-header">
+        Trivia Tidbits
+        <span class="arrow">▶</span>
+      </header>
+      <div id="tab4-content" class="tab-content" role="region" aria-labelledby="tab4-header">
+        <p>Fun facts, curious questions, and fascinating trivia from all corners of knowledge.</p>
+      </div>
+    </article>
+
+  </section>
+
+  <footer>
+    <p style="text-align:center; padding: 2rem 20px; font-size: 0.9rem; color: #555;">
+      Contact: hungrymind(four-seven) (at) gmail.com <br>
+      &copy; 2025 My Blog. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Accordion tab behavior
+    document.querySelectorAll('.tab-header').forEach(header => {
+      header.addEventListener('click', () => {
+        toggleTab(header);
+      });
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTab(header);
+        }
+      });
+    });
+
+    function toggleTab(header) {
+      const expanded = header.getAttribute('aria-expanded') === 'true';
+      const content = document.getElementById(header.getAttribute('aria-controls'));
+
+      if (expanded) {
+        // Collapse
+        header.setAttribute('aria-expanded', 'false');
+        header.classList.remove('active');
+        content.classList.remove('active');
+      } else {
+        // Expand
+        header.setAttribute('aria-expanded', 'true');
+        header.classList.add('active');
+        content.classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
