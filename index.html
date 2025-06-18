@@ -14,15 +14,6 @@
       color: #111111;
       scroll-behavior: smooth;
     }
-
-    body > .intro:first-of-type {
-      padding-top: 6rem;
-    }
-    
-    #more.intro {
-      padding-top: 4rem;
-      margin-top: 2rem;
-    }
     
     /* Navigation bar */
     nav {
@@ -83,6 +74,16 @@
       align-items: center;
       text-align: center;
       padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .intro:first-of-type {
+      height: 100vh;  /* full viewport height for the first intro only */
+    }
+    
+    .intro:not(:first-of-type) {
+      height: auto;   /* let others size naturally */
+      padding: 4rem 20px 2rem 20px; /* add top padding so content isn't stuck to nav */
       box-sizing: border-box;
     }
 
