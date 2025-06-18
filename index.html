@@ -23,19 +23,21 @@
       transform: translateX(-50%);
       width: auto;
       background-color: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      /* Removed shadow */
+      /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
       z-index: 1000;
-      padding: 0.5rem 1rem;
+      padding: 1rem 2rem; /* increased padding for bigger nav bar */
       border-radius: 0 0 12px 12px;
       display: flex;
-      gap: 2rem;
+      gap: 3rem; /* more spacing between links */
       font-weight: 600;
+      font-size: 1.25rem; /* bigger font size */
     }
 
     nav a {
       color: #111111;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 1.25rem; /* bigger font size */
       padding: 0.5rem 0;
       position: relative;
       transition: color 0.3s ease;
@@ -64,7 +66,7 @@
 
     /* Add top padding so content isn't hidden behind fixed nav */
     body > .intro:first-of-type {
-      padding-top: 4rem;
+      padding-top: 6rem; /* increased to match bigger nav */
     }
 
     /* Centered launch content */
@@ -99,6 +101,7 @@
       border-radius: 50px;
       font-weight: 600;
       transition: background-color 0.3s ease;
+      font-size: 1rem;
     }
 
     .btn:hover {
