@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>A Hungry Mind: Love and Life</title>
+  <title>A Hungry Mind: Trivia Tidbits</title>
   <style>
     /* Base styles */
     body {
@@ -20,19 +20,38 @@
       width: 100%;
       background-color: white;
       padding: 1rem 0;
-      border-bottom: 1px solid #eee;
+      padding-left: 20px;  /* keeps left padding */
+      /* border-bottom: 1px solid #eee; */
       display: flex;
-      justify-content: center;
-      gap: 3rem;
-      font-weight: 750;
-      font-size: 1.5rem;
-
-      position: fixed;   /* Fixed on top */
+      justify-content: flex-start;  /* aligns items to left */
+      gap: 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      position: fixed;
       top: 0;
       left: 0;
       z-index: 999;
+      align-items: center; /* vertically center logo and links */
+    }
+    
+    /* New styles for the logo container */
+    .nav-logo {
+      flex-shrink: 0;       /* keep logo size fixed */
+      margin-left: 2rem;
+      margin-right: 0rem;   /* space between logo and links */
+    }
+    
+    /* Logo image styling */
+    .nav-logo img {
+      height: 35px;
+      width: 35px;
+      object-fit: contain;
+      border-radius: 6px;   /* optional: rounded corners */
+      cursor: pointer;
     }
 
+
+    
     nav a {
       color: #111111;
       text-decoration: none;
@@ -61,9 +80,9 @@
       width: 100%;
     }
 
-    /* Give space below fixed nav */
+    /* Intro */
     .intro {
-      padding: 6rem 20px 0.5rem 20px;
+      padding: 4rem 20px 0.5rem 20px;
       max-width: 700px;
       margin: 0 auto;
       text-align: center;
@@ -78,79 +97,129 @@
       font-size: 1.25rem;
       line-height: 1.6;
       margin-bottom: 2rem;
+      font-weight: 300;
     }
 
     /* Tabs container */
     .tabs {
       width: 100%;
-      margin: 2rem auto 4rem auto;
-      padding: 0.5rem 10% 4rem 10%;
-      box-sizing: border-box;
+      max-width: 800px;
+      margin: 2rem auto 4rem;
+      padding: 0 20px;
     }
 
-    /* Each tab item */
     .tab {
-      border: 1px solid #eee;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgb(216 180 248 / 0.2);
-      background: #fafafa;
-      transition: box-shadow 0.3s ease;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
     }
 
-    .tab:hover {
-      box-shadow: 0 4px 12px rgb(216 180 248 / 0.4);
-    }
-
-    /* Tab header */
-    .tab-header {
-      cursor: pointer;
-      padding: 1rem 1.5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-      background-color: white;
-      color: #6b21a8;
+    /* Make entire tab-body clickable */
+    .tab-body {
       display: flex;
-      justify-content: space-between;
+      gap: 1rem;
+      /* align-items: flex-start; */
       align-items: center;
-      user-select: none;
+      margin-top: 0.75rem;
+      cursor: pointer;
     }
 
-    /* Arrow icon */
-    .tab-header .arrow {
-      transition: transform 0.3s ease;
-      font-size: 1.2rem;
+    /* Style the tab title with old tab-header styles */
+    .tab-title {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #6b21a8;
+      transition: color 0.3s ease;
     }
 
-    /* Rotate arrow when active */
-    .tab-header.active .arrow {
-      transform: rotate(90deg);
+    /* Pointer cursor on just the title text too */
+    .tab-title:hover {
+      color: #7e3bb3;
     }
 
-    /* Tab content - collapsed by default */
-    .tab-content {
+    /* Image styling */
+    .tab-image {
+      width: 204px;
+      height: 153px;
+      object-fit: contain;
+      border-radius: 6px;
+      flex-shrink: 0;
+      background-color: #ffffff;
+    }
+
+    .tab-info {
+      flex: 1;
+    }
+
+    .tab-blurb {
+      margin: 0.5rem 0;
+      color: #555;
+    }
+
+    .tab-date {
+      font-size: 0.9rem;
+      color: #999;
+      margin: 0;
+    }
+
+    /* Expanded details, hidden by default */
+    .tab-expanded {
       max-height: 0;
-      padding: 0 1.5rem;
       overflow: hidden;
-      background-color: white;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #333;
       transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 0;
+      color: #444;
+      font-size: 1rem;
+      margin-top: 1rem;
     }
 
-    /* Expanded content */
-    .tab-content.active {
-      padding: 1rem 1.5rem 1.5rem 1.5rem;
-      max-height: 1000px; /* large enough to fit content */
+    /* Show expanded content when active */
+    .tab.active .tab-expanded {
+      max-height: 500px; /* enough height for content */
+      padding: 1rem 0;
     }
 
+.intro-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #111111;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  font-weight: 200;
+}
+
+.intro-title:hover {
+  color: #6b21a8;
+}
+
+.tab-header-row {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 0.5rem;
+}
+
+.arrow {
+  font-size: 0.8rem;
+  color: #6b21a8;
+  transition: transform 0.3s ease;
+}
+
+.tab.active .arrow {
+  transform: rotate(90deg);
+}
+    
   </style>
 </head>
 <body>
 
   <nav>
+    <div class="nav-logo">
+      <a href="https://ahungrymind.github.io/">
+        <img src="/download.jpg" alt="Logo" />
+      </a>
+    </div>
     <a href="https://ahungrymind.github.io/">Home</a>
     <a href="https://ahungrymind.github.io/yumandfun/">Food and Travel</a>
     <a href="https://ahungrymind.github.io/reflect/">Love and Life</a>
@@ -159,65 +228,80 @@
   </nav>
 
   <section class="intro">
-    <h1>Hello Reflect.</h1>
+    <h1 class="intro-title">Hello Reflect.</h1>
     <p>
-      Dive into thoughts, ideas, and stories that stir curiosity and spark joy. Click on the tabs below to explore different topics.
+      Inspired by life’s random moments, journey into unexpected stories and fun facts spanning history, science, current events, and more.
     </p>
   </section>
 
   <section class="tabs" aria-label="Expandable tab sections">
 
-    <article class="tab">
-      <header class="tab-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tab1-content" id="tab1-header">
-        Food & Travel
-        <span class="arrow">▶</span>
-      </header>
-      <div id="tab1-content" class="tab-content" role="region" aria-labelledby="tab1-header">
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate.</p>
-        <p>Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. Explore delicious recipes, hidden culinary gems, and travel stories that broaden the mind and palate. </p>
+    <div class="tab">
+      <div class="tab-body">
+        <img src="/download.jpg" alt="Thumbnail" class="tab-image">
+        <div class="tab-info">
+          <div class="tab-header-row">
+            <div class="arrow">&#9654;</div>
+            <h2 class="tab-title">Chasing Flavors Across The Globe</h2>
+          </div>
+          <p class="tab-blurb">Join me as I explore street food stalls...</p>
+          <p class="tab-date">June 2025</p>
+        </div>
       </div>
-    </article>
 
-    <article class="tab">
-      <header class="tab-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tab2-content" id="tab2-header">
-        Love & Life
-        <span class="arrow">▶</span>
-      </header>
-      <div id="tab2-content" class="tab-content" role="region" aria-labelledby="tab2-header">
-        <p>Reflections on relationships, personal growth, and the small things that make life meaningful.</p>
+      <div class="tab-expanded">
+        <p>From the spicy street food of Bangkok to the lush vineyards of Bordeaux, I dive deep into tastes and traditions that make each place unique.</p>
+        <p>Discover travel tips, hidden gems, and the stories behind unforgettable flavors.</p>
       </div>
-    </article>
+    </div>
 
-    <article class="tab">
-      <header class="tab-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tab3-content" id="tab3-header">
-        Short Stories
-        <span class="arrow">▶</span>
-      </header>
-      <div id="tab3-content" class="tab-content" role="region" aria-labelledby="tab3-header">
-        <p>A collection of brief, whimsical, and thought-provoking stories to brighten your day.</p>
+    <div class="tab">
+      <div class="tab-body">
+        <img src="/download.jpg" alt="Thumbnail" class="tab-image">
+        <div class="tab-info">
+          <h2 class="tab-title">Moments that Matter</h2>
+          <p class="tab-blurb">Thoughts on relationships, growth, and the little things that shape who we are.</p>
+          <p class="tab-date">May 2025</p>
+        </div>
       </div>
-    </article>
 
-    <article class="tab">
-      <header class="tab-header" tabindex="0" role="button" aria-expanded="false" aria-controls="tab4-content" id="tab4-header">
-        Trivia Tidbits
-        <span class="arrow">▶</span>
-      </header>
-      <div id="tab4-content" class="tab-content" role="region" aria-labelledby="tab4-header">
-        <p>Fun facts, curious questions, and fascinating trivia from all corners of knowledge.</p>
+      <div class="tab-expanded">
+        <p>Exploring the subtle moments that influence our paths — from deep personal reflections to shared experiences with loved ones.</p>
+        <p>Life is a journey of constant growth, and these stories highlight the beauty of everyday change.</p>
       </div>
-    </article>
+    </div>
+
+    <div class="tab">
+      <div class="tab-body">
+        <img src="/download.jpg" alt="Thumbnail" class="tab-image">
+        <div class="tab-info">
+          <h2 class="tab-title">The Clockmaker's Paradox</h2>
+          <p class="tab-blurb">A whimsical story about time, chance meetings, and unexpected consequences.</p>
+          <p class="tab-date">April 2025</p>
+        </div>
+      </div>
+
+      <div class="tab-expanded">
+        <p>Follow the tale of a mysterious clockmaker whose creations bend reality and challenge fate itself.</p>
+        <p>What happens when time is no longer linear, and every moment holds infinite possibilities?</p>
+      </div>
+    </div>
+
+    <div class="tab">
+      <div class="tab-body">
+        <img src="/download.jpg" alt="Thumbnail" class="tab-image">
+        <div class="tab-info">
+          <h2 class="tab-title">Why Do Flamingos Stand on One Leg?</h2>
+          <p class="tab-blurb">Fun facts and curious questions you didn't know you wanted to know.</p>
+          <p class="tab-date">March 2025</p>
+        </div>
+      </div>
+
+      <div class="tab-expanded">
+        <p>Discover the science behind flamingos’ iconic stance and other fascinating animal behaviors.</p>
+        <p>Plus, surprising trivia from history, science, and beyond to satisfy your curiosity.</p>
+      </div>
+    </div>
 
   </section>
 
@@ -229,35 +313,18 @@
   </footer>
 
   <script>
-    // Accordion tab behavior
-    document.querySelectorAll('.tab-header').forEach(header => {
-      header.addEventListener('click', () => {
-        toggleTab(header);
-      });
-      header.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleTab(header);
+    document.querySelectorAll('.tab').forEach(tab => {
+      const tabBody = tab.querySelector('.tab-body');
+
+      tabBody.addEventListener('click', () => {
+        if (tab.classList.contains('active')) {
+          tab.classList.remove('active');
+        } else {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
         }
       });
     });
-
-    function toggleTab(header) {
-      const expanded = header.getAttribute('aria-expanded') === 'true';
-      const content = document.getElementById(header.getAttribute('aria-controls'));
-
-      if (expanded) {
-        // Collapse
-        header.setAttribute('aria-expanded', 'false');
-        header.classList.remove('active');
-        content.classList.remove('active');
-      } else {
-        // Expand
-        header.setAttribute('aria-expanded', 'true');
-        header.classList.add('active');
-        content.classList.add('active');
-      }
-    }
   </script>
 
 </body>
