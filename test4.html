@@ -20,11 +20,10 @@
       width: 100%;
       background-color: white;
       padding: 1rem 0;
-      padding-left: 20px;  /* adds space on left */
+      padding-left: 20px;  /* keeps left padding */
       border-bottom: 1px solid #eee;
       display: flex;
-      /* justify-content: center; */
-      justify-content: flex-start;
+      justify-content: flex-start;  /* aligns items to left */
       gap: 3rem;
       font-weight: 600;
       font-size: 1.25rem;
@@ -32,8 +31,26 @@
       top: 0;
       left: 0;
       z-index: 999;
+      align-items: center; /* vertically center logo and links */
+    }
+    
+    /* New styles for the logo container */
+    .nav-logo {
+      flex-shrink: 0;       /* keep logo size fixed */
+      margin-right: 1rem;   /* space between logo and links */
+    }
+    
+    /* Logo image styling */
+    .nav-logo img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+      border-radius: 6px;   /* optional: rounded corners */
+      cursor: pointer;
     }
 
+
+    
     nav a {
       color: #111111;
       text-decoration: none;
@@ -195,6 +212,11 @@
 <body>
 
   <nav>
+    <div class="nav-logo">
+      <a href="https://ahungrymind.github.io/">
+        <img src="/download.jpg" alt="Logo" />
+      </a>
+    </div>
     <a href="https://ahungrymind.github.io/">Home</a>
     <a href="https://ahungrymind.github.io/yumandfun/">Food and Travel</a>
     <a href="https://ahungrymind.github.io/reflect/">Love and Life</a>
