@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Hungry Mind: Trivia Tadbits</title>
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation bar */
+    nav {
+      width: 100%;
+      background-color: white;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-weight: 750;
+      font-size: 1.5rem;
+
+      position: fixed;   /* Fixed on top */
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #111111;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #d8b4f8;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #6b21a8;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    /* Give space below fixed nav */
+    .intro {
+      padding: 6rem 20px 0.5rem 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .tabs {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 20px;
+  }
+
+  .tab {
+    border-bottom: 1px solid #ddd;
+    padding: 1.5rem 0;
+    cursor: pointer;
+  }
+
+  .tab-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #222;
+    transition: color 0.3s ease;
+  }
+
+  .tab-header:hover {
+    color: #6b21a8;
+  }
+
+  .tab-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    font-size: 1rem;
+    color: #333;
+    padding: 0;
+  }
+
+  .tab.active .tab-content {
+    padding-top: 0.5rem;
+  }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://ahungrymind.github.io/">Home</a>
+    <a href="https://ahungrymind.github.io/yumandfun/">Food and Travel</a>
+    <a href="https://ahungrymind.github.io/reflect/">Love and Life</a>
+    <a href="https://ahungrymind.github.io/stories/">Short Stories</a>
+    <a href="https://ahungrymind.github.io/knowledge/">Trivia Tidbits</a>
+  </nav>
+
+  <section class="intro">
+    <h1>Hello Knowledge.</h1>
+    <p>
+      Inspired by life’s random moments, journey into unexpected stories and fun facts spanning history, science, current events, and more.
+    </p>
+  </section>
+
+  <section class="tabs" aria-label="Expandable tab sections">
+
+    <div class="tabs">
+  <div class="tab">
+    <div class="tab-header">Food & Travel</div>
+    <div class="tab-content">
+      <p>Inspiration and where my mind took me.</p>
+    </div>
+  </div>
+
+  <div class="tab">
+    <div class="tab-header">Love & Life</div>
+    <div class="tab-content">
+      <p>Reflections on relationships, personal growth, and the small things that make life meaningful.</p>
+    </div>
+  </div>
+
+  <div class="tab">
+    <div class="tab-header">Short Stories</div>
+    <div class="tab-content">
+      <p>A collection of brief, whimsical, and thought-provoking stories to brighten your day.</p>
+    </div>
+  </div>
+
+  <div class="tab">
+    <div class="tab-header">Trivia Tidbits</div>
+    <div class="tab-content">
+      <p>Fun facts, curious questions, and fascinating trivia from all corners of knowledge.</p>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+  <footer>
+    <p style="text-align:center; padding: 2rem 20px; font-size: 0.9rem; color: #555;">
+      Contact: hungrymind(four-seven) (at) gmail.com <br>
+      &copy; 2025 My Blog. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    const header = tab.querySelector('.tab-header');
+    const content = tab.querySelector('.tab-content');
+
+    header.addEventListener('click', () => {
+      if (tab.classList.contains('active')) {
+        // collapse
+        content.style.maxHeight = null;
+        tab.classList.remove('active');
+      } else {
+        // collapse others (optional)
+        document.querySelectorAll('.tab').forEach(t => {
+          t.classList.remove('active');
+          t.querySelector('.tab-content').style.maxHeight = null;
+        });
+
+        // expand
+        tab.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
