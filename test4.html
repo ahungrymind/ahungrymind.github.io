@@ -169,6 +169,26 @@
 .intro-title:hover {
   color: #6b21a8;
 }
+
+.tab-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow {
+  width: 0; 
+  height: 0; 
+  margin-left: 10px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #6b21a8;
+  transition: transform 0.3s ease;
+}
+
+.tab.active .arrow {
+  transform: rotate(90deg);
+}
     
   </style>
 </head>
@@ -195,8 +215,11 @@
       <div class="tab-body">
         <img src="/download.jpg" alt="Thumbnail" class="tab-image">
         <div class="tab-info">
-          <h2 class="tab-title">Chasing Flavors Across The Globe</h2>
-          <p class="tab-blurb">Join me as I explore street food stalls in Bangkok, vineyards in France, and local markets full of surprises.</p>
+          <div class="tab-header-row">
+            <h2 class="tab-title">Chasing Flavors Across The Globe</h2>
+            <div class="arrow"></div>
+          </div>
+          <p class="tab-blurb">Join me as I explore street food stalls...</p>
           <p class="tab-date">June 2025</p>
         </div>
       </div>
