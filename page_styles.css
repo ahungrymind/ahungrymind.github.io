@@ -109,8 +109,8 @@ nav a:focus::after {
 .nav-dropdown-menu {
   display: none;
   position: absolute;
-  top: 2.1rem;
-  right: 0;
+  top: 2.5rem;
+  left: 0;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 6px;
