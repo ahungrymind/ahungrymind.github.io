@@ -96,6 +96,56 @@
     }
 
     /* ========================================
+   Dropdown Menu in Navigation
+======================================== */
+    .nav-dropdown {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .nav-dropdown-toggle {
+      color: #111111;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-dropdown-toggle:hover {
+      color: #6b21a8;
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 2.5rem;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      min-width: 150px;
+      padding: 0.5rem 0;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #111111;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background-color: #f3e8ff;
+    }
+
+    /* Show dropdown on hover */
+    .nav-dropdown:hover .nav-dropdown-menu {
+      display: block;
+    }
+
+    /* ========================================
    Tabs Container
 ======================================== */
     .tab {
@@ -223,6 +273,16 @@
     <a href="https://ahungrymind.github.io/reflect/">Love and Life</a>
     <a href="https://ahungrymind.github.io/stories/">Short Stories</a>
     <a href="https://ahungrymind.github.io/knowledge/">Trivia Tidbits</a>
+
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle">More ▾</span>
+      <div class="nav-dropdown-menu">
+        <a href="#">New Topic 1</a>
+        <a href="#">New Topic 2</a>
+        <a href="#">New Topic 3</a>
+      </div>
+    </div>
+
   </nav>
 
   <section class="intro">
@@ -326,6 +386,22 @@
         }
       });
     });
+
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
+          menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        });
+      });
+    });
+
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
+        menu.style.display = 'none';
+      });
+    });
+
   </script>
 
 </body>
