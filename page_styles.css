@@ -102,7 +102,7 @@ nav a:focus::after {
   transition: color 0.3s ease;
 }
 
-.nav-dropdown-toggle:hover {
+.nav-dropdown:hover .nav-dropdown-toggle {
   color: #6b21a8;
 }
 
