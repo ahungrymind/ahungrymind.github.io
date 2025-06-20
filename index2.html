@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Hungry Mind</title>
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      scroll-behavior: smooth;
+    }
+    
+    nav {
+      width: 100%;
+      background-color: white;
+      padding: 1rem 0 1rem 20px;
+      display: flex;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      align-items: center;
+    }
+
+    .nav-logo {
+      flex-shrink: 0;
+      margin-left: 2rem;
+    }
+
+    .nav-logo img {
+      height: 35px;
+      width: 35px;
+      object-fit: contain;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    nav a {
+      color: #111111;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #d8b4f8;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #6b21a8;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    body > .intro:first-of-type {
+      padding-top: 4rem;
+    }
+    
+    /* Centered launch content */
+    .intro {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .intro:first-of-type {
+      height: 100vh;  /* full viewport height for the first intro only */
+    }
+    
+    .intro:not(:first-of-type) {
+      height: auto;   /* let others size naturally */
+      padding: 4rem 20px 2rem 20px; /* add top padding so content isn't stuck to nav */
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 200;
+    }
+
+    p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      background-color: #d8b4f8;
+      color: #111111;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #c084fc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://ahungrymind.github.io/">Home</a>
+    <a href="https://ahungrymind.github.io/yumandfun/">Food and Travel</a>
+    <a href="https://ahungrymind.github.io/reflect/">Love and Life</a>
+    <a href="https://ahungrymind.github.io/stories/">Short Stories</a>
+    <a href="https://ahungrymind.github.io/knowledge/">Trivia Tidbits</a>
+  </nav>
+
+  <div class="intro">
+    <h1>Insights into A Hungry Mind</h1>
+    <p>
+      A small corner of the internet where I share my thoughts, explore ideas, reflect on love and life, and ramble about phood and filosophy. It’s a space to be curious, reflective, playful, and goofy.
+    </p>
+    <a href="#more" class="btn">Enter</a>
+  </div>
+
+  <div id="more" class="intro" style="background-color: #fafafa;">
+    <h1>About Me</h1>
+    <p>Hi — and welcome. I’m someone who thinks deeply, feels deeply, and cares deeply — about people, ideas, and the small joys that make life meaningful. This blog is a collection of things I love: food that makes the heart sing, travels that widens the eyes, reflections that clear the mind, thoughts that keep the wheels turning, and curiosities that refuse easy answers.</p> 
+    <p>I’m a learner at heart — endlessly curious, always chasing the next book, recipe, city, or thought experiment. I care about how we live, how we grow, how we connect, and how we can do a little better — for ourselves, for each other, for the earth, and for the world.</p> 
+    <p>I’m an extrovert who loves passionate people. Few things make me happier than seeing someone light up about something they love — whether it’s simple hobbies, big dreams, or spontaneous weekend plans. I believe in going <i>all in</i> — with work, relationships, and experiences — though I’m learning that balance matters too. The struggle of facing the impossible tension between wanting to do more on every front is real — balancing partner and friends, productivity and play, helping the world and playing the often mean game it has become.</p> 
+    <p>You’ll find bits of all of that here. Some posts will be thoughtful, some lighthearted. Some will be stories, some half-formed musings. But if there’s a common thread, it’s this: I care. About learning, about sharing, about noticing the world in small ways that might make your day — or mine — a little brighter.</p> 
+    <p>A quick closing note: I acknowledge that my perspectives may be limited and that I am still always learning. It is never my intention to offend anyone or devalue anyone’s views, beliefs, or experiences. I will always appreciate any thoughts and feedback you might want to share — feel free to reach out by email anytime.</p> 
+    <p>Enjoy :)</p>
+
+  </div>
+
+  <footer>
+    Contact: hungrymind(four-seven) (at) gmail.com <br>
+    &copy; 2025 My Blog. All rights reserved.
+  </footer>
+
+</body>
+</html>
