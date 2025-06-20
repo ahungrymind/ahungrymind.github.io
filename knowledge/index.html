@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>A Hungry Mind: Trivia Tidbits</title>
   <style>
-    /* Base styles */
+    /* ========================================
+   Base Styles
+======================================== */
     body {
       margin: 0;
       padding: 0;
@@ -15,15 +18,32 @@
       scroll-behavior: smooth;
     }
 
-    /* Navigation bar */
+    /* ========================================
+   Layout Containers
+======================================== */
+    .intro {
+      padding: 4rem 20px 0.5rem 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .tabs {
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto 4rem;
+      padding: 0 20px;
+    }
+
+    /* ========================================
+   Navigation Bar
+======================================== */
     nav {
       width: 100%;
       background-color: white;
-      padding: 1rem 0;
-      padding-left: 20px;  /* keeps left padding */
-      /* border-bottom: 1px solid #eee; */
+      padding: 1rem 0 1rem 20px;
       display: flex;
-      justify-content: flex-start;  /* aligns items to left */
+      justify-content: flex-start;
       gap: 1.5rem;
       font-weight: 600;
       font-size: 1rem;
@@ -31,27 +51,22 @@
       top: 0;
       left: 0;
       z-index: 999;
-      align-items: center; /* vertically center logo and links */
+      align-items: center;
     }
-    
-    /* New styles for the logo container */
+
     .nav-logo {
-      flex-shrink: 0;       /* keep logo size fixed */
+      flex-shrink: 0;
       margin-left: 2rem;
-      margin-right: 0rem;   /* space between logo and links */
     }
-    
-    /* Logo image styling */
+
     .nav-logo img {
       height: 35px;
       width: 35px;
       object-fit: contain;
-      border-radius: 6px;   /* optional: rounded corners */
+      border-radius: 6px;
       cursor: pointer;
     }
 
-
-    
     nav a {
       color: #111111;
       text-decoration: none;
@@ -80,65 +95,64 @@
       width: 100%;
     }
 
-    /* Intro */
-    .intro {
-      padding: 4rem 20px 0.5rem 20px;
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .intro h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .intro p {
-      font-size: 1.25rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-
-    /* Tabs container */
-    .tabs {
-      width: 100%;
-      max-width: 800px;
-      margin: 2rem auto 4rem;
-      padding: 0 20px;
-    }
-
+    /* ========================================
+   Tabs Container
+======================================== */
     .tab {
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
       padding: 1rem 0;
     }
 
-    /* Make entire tab-body clickable */
     .tab-body {
       display: flex;
       gap: 1rem;
-      /* align-items: flex-start; */
       align-items: center;
       margin-top: 0.75rem;
       cursor: pointer;
     }
 
-    /* Style the tab title with old tab-header styles */
-    .tab-title {
-      margin: 0;
-      font-size: 1.25rem;
-      font-weight: 400;
+    .tab-info {
+      flex: 1;
+    }
+
+    .tab-expanded {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 0;
+      color: #444;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    .tab.active .tab-expanded {
+      max-height: 500px;
+      padding: 1rem 0;
+    }
+
+    /* ========================================
+   Tab Header Row & Arrow
+======================================== */
+    .tab-header-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .arrow {
+      font-size: 0.8rem;
       color: #6b21a8;
-      transition: color 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    /* Pointer cursor on just the title text too */
-    .tab-title:hover {
-      color: #7e3bb3;
+    .tab.active .arrow {
+      transform: rotate(90deg);
     }
 
-    /* Image styling */
+    /* ========================================
+   Images
+======================================== */
     .tab-image {
       width: 204px;
       height: 153px;
@@ -148,8 +162,39 @@
       background-color: #ffffff;
     }
 
-    .tab-info {
-      flex: 1;
+    /* ========================================
+   Typography — Titles & Text
+======================================== */
+    .intro-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #111111;
+      cursor: pointer;
+      font-weight: 200;
+      transition: color 0.3s ease;
+    }
+
+    .intro-title:hover {
+      color: #6b21a8;
+    }
+
+    .intro p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .tab-title {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #6b21a8;
+      transition: color 0.3s ease;
+    }
+
+    .tab-title:hover {
+      color: #7e3bb3;
     }
 
     .tab-blurb {
@@ -162,56 +207,9 @@
       color: #999;
       margin: 0;
     }
-
-    /* Expanded details, hidden by default */
-    .tab-expanded {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      padding: 0 0;
-      color: #444;
-      font-size: 1rem;
-      margin-top: 1rem;
-    }
-
-    /* Show expanded content when active */
-    .tab.active .tab-expanded {
-      max-height: 500px; /* enough height for content */
-      padding: 1rem 0;
-    }
-
-.intro-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #111111;
-  transition: color 0.3s ease;
-  cursor: pointer;
-  font-weight: 200;
-}
-
-.intro-title:hover {
-  color: #6b21a8;
-}
-
-.tab-header-row {
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between; */
-  gap: 0.5rem;
-}
-
-.arrow {
-  font-size: 0.8rem;
-  color: #6b21a8;
-  transition: transform 0.3s ease;
-}
-
-.tab.active .arrow {
-  transform: rotate(90deg);
-}
-    
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -230,7 +228,8 @@
   <section class="intro">
     <h1 class="intro-title">Hello Knowledge.</h1>
     <p>
-      Inspired by life’s random moments, journey into unexpected stories and fun facts spanning history, science, current events, and more.
+      Inspired by life’s random moments, journey into unexpected stories and fun facts spanning history, science,
+      current events, and more.
     </p>
   </section>
 
@@ -250,7 +249,8 @@
       </div>
 
       <div class="tab-expanded">
-        <p>From the spicy street food of Bangkok to the lush vineyards of Bordeaux, I dive deep into tastes and traditions that make each place unique.</p>
+        <p>From the spicy street food of Bangkok to the lush vineyards of Bordeaux, I dive deep into tastes and
+          traditions that make each place unique.</p>
         <p>Discover travel tips, hidden gems, and the stories behind unforgettable flavors.</p>
       </div>
     </div>
@@ -266,7 +266,8 @@
       </div>
 
       <div class="tab-expanded">
-        <p>Exploring the subtle moments that influence our paths — from deep personal reflections to shared experiences with loved ones.</p>
+        <p>Exploring the subtle moments that influence our paths — from deep personal reflections to shared experiences
+          with loved ones.</p>
         <p>Life is a journey of constant growth, and these stories highlight the beauty of everyday change.</p>
       </div>
     </div>
@@ -328,4 +329,5 @@
   </script>
 
 </body>
+
 </html>
