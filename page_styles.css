@@ -265,3 +265,61 @@ nav a:focus::after {
   color: #999;
   margin: 0;
 }
+
+.pagination-container {
+  text-align: center;
+  padding: 1.5rem 0 2rem 0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  color: #111111;
+  user-select: none;
+}
+
+.pagination-link,
+.pagination-current {
+  margin: 0 0.6rem;
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+  color: #6b21a8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Current page: bold black, no pointer */
+.pagination-current {
+  color: #111111;
+  font-weight: 700;
+  cursor: default;
+  text-decoration: none;
+}
+
+/* Underline animation similar to nav links */
+.pagination-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #d8b4f8;
+  transition: width 0.3s ease;
+}
+
+.pagination-link:hover,
+.pagination-link:focus {
+  color: #4c158c;
+  outline: none;
+}
+
+.pagination-link:hover::after,
+.pagination-link:focus::after {
+  width: 100%;
+}
+
+/* For the < and > arrows, slightly smaller and same style */
+.pagination-link:first-child,
+.pagination-link:last-child {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
