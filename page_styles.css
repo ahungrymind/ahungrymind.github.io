@@ -185,7 +185,7 @@ nav a:focus::after {
 }
 
 .tab.active .tab-expanded {
-  max-height: none;
+  max-height: 9999px;
   padding: 1rem 0;
 }
 
