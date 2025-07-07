@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        .bookshelf {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .book {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .book:hover {
+            transform: scale(1.03);
+        }
+
+        .cover {
+            width: 100%;
+            display: block;
+        }
+
+        .blurb {
+            display: none;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            border-top: 1px solid #ccc;
+            background-color: #fafafa;
+        }
+
+        .book.expanded .blurb {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align:center;">📚 My Bookshelf</h1>
+    <div class="bookshelf">
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div> <!-- Add more books as needed -->
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1 Cover">
+            <div class="blurb"> <strong>Book 1:</strong> A gripping tale of adventure and self-discovery. Follow the
+                journey of a young protagonist as they uncover secrets of a forgotten world. </div>
+        </div>
+        <div class="book" onclick="toggleBlurb(this)"> <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597695864i/54493401.jpg"
+                alt="Book 2 Cover">
+            <div class="blurb"> <strong>Book 2:</strong> A heartwarming story about friendship, loss, and the resilience
+                of the human spirit in times of change. </div>
+        </div>
+    </div>
+    <script> function toggleBlurb(bookElement) { bookElement.classList.toggle('expanded'); } </script>
+</body>
+
+</html>
