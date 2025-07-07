@@ -7,9 +7,12 @@
     <title>Bookshelf with Row-Level Blurbs</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            scroll-behavior: smooth;
         }
 
         h1 {
@@ -17,6 +20,9 @@
             margin-bottom: 40px;
         }
 
+        /* ========================================
+   Bookshelf Grid (Matching Modern Style)
+======================================== */
         .bookshelf {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -24,32 +30,40 @@
             max-width: 1000px;
             margin: 0 auto;
             position: relative;
+            padding: 2rem 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
         }
 
+        /* Each book card */
         .book {
-            background-color: #fff;
+            background-color: #ffffff;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .book:hover {
             transform: scale(1.03);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
         }
 
         .cover {
             width: 100%;
             display: block;
+            border-bottom: 1px solid #eee;
         }
 
+        /* Blurb container appears across full row */
         .blurb-container {
-            background-color: #fff8e1;
-            border: 1px solid #ccc;
+            background-color: #fef9f5;
+            border: 1px solid #e4dcdc;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             grid-column: 1 / -1;
             display: none;
         }
@@ -58,15 +72,19 @@
             display: block;
         }
 
+        /* Blurb text content */
         .blurb-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: #6b21a8;
         }
 
         .blurb-text {
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -78,79 +96,129 @@
     <div class="bookshelf" id="bookshelf">
         <!-- Books (add more as needed) -->
         <div class="book" onclick="showBlurb(0, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 1">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1">
         </div>
         <div class="book" onclick="showBlurb(1, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 2">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 2">
         </div>
         <div class="book" onclick="showBlurb(2, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 3">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 3">
         </div>
         <div class="book" onclick="showBlurb(3, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 4">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 4">
         </div>
         <div class="book" onclick="showBlurb(4, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 5">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 5">
         </div>
         <div class="book" onclick="showBlurb(5, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 1">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1">
         </div>
         <div class="book" onclick="showBlurb(6, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 2">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 2">
         </div>
         <div class="book" onclick="showBlurb(7, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 3">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 3">
         </div>
         <div class="book" onclick="showBlurb(8, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 4">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 4">
         </div>
         <div class="book" onclick="showBlurb(9, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 5">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 5">
         </div>
         <div class="book" onclick="showBlurb(10, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 1">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1">
         </div>
         <div class="book" onclick="showBlurb(11, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 2">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 2">
         </div>
         <div class="book" onclick="showBlurb(12, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 3">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 3">
         </div>
         <div class="book" onclick="showBlurb(13, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 4">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 4">
         </div>
         <div class="book" onclick="showBlurb(14, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 5">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 5">
         </div>
         <div class="book" onclick="showBlurb(15, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 1">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1">
         </div>
         <div class="book" onclick="showBlurb(16, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 2">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 2">
         </div>
         <div class="book" onclick="showBlurb(17, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 3">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 3">
         </div>
         <div class="book" onclick="showBlurb(18, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 4">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 4">
         </div>
         <div class="book" onclick="showBlurb(19, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 5">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 5">
         </div>
         <div class="book" onclick="showBlurb(20, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 1">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 1">
         </div>
         <div class="book" onclick="showBlurb(21, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 2">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 2">
         </div>
         <div class="book" onclick="showBlurb(22, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 3">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 3">
         </div>
         <div class="book" onclick="showBlurb(23, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 4">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 4">
         </div>
         <div class="book" onclick="showBlurb(24, this)">
-            <img class="cover" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg" alt="Book 5">
+            <img class="cover"
+                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925117i/5135.jpg"
+                alt="Book 5">
         </div>
         <!-- The dynamic blurb -->
         <div class="blurb-container" id="blurb">
