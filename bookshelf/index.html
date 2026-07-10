@@ -58,6 +58,24 @@
             border-bottom: 1px solid #eee;
         }
 
+        /* Style the rating section */
+        .rating {
+            padding: 12px 10px; /* Gives the stars breathing room inside the white card */
+            text-align: center; /* Centers the stars under the cover */
+            color: #FFD700; /* A classic gold star color */
+            font-size: 1.2rem; /* Adjust this to make the stars bigger or smaller */
+            letter-spacing: 2px; /* Spaces the stars out just a little bit */
+        }
+
+        .half-star {
+            /* Creates a gradient that stops hard at 50% */
+            background: linear-gradient(to right, #FFD700 50%, #e0e0e0 50%);
+            
+            /* Clips the background to the shape of the text (the star) */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
         /* Blurb container appears across full row */
         .blurb-container {
             background-color: #fef9f5;
@@ -120,24 +138,48 @@
         </p>
     </section>
 
+<!-- Sample Ratings
+    <div class="rating">
+        ★★★★★
+    </div>
+    <div class="rating">
+        ★★★★<span class="half-star">★</span>
+    </div>
+    -->
+    
     <div class="bookshelf" id="reading">
 
         <p style="display: flex; justify-content: center; align-items: center;">2026 Reads</p>
 
-        <div class="book"> <a href="https://www.goodreads.com/en/book/show/127282939-beautyland" target="_blank"><img
+        <div class="book"> 
+            <a href="https://www.goodreads.com/en/book/show/127282939-beautyland" target="_blank"><img
             class="cover"
             src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1685992173i/127282939.jpg"
-            alt="Beautyland by Marie-Helene Bertino "></a> </div>
+            alt="Beautyland by Marie-Helene Bertino "></a> 
+            <div class="rating">
+                ★★★★★
+            </div>
+        </div>
         
-        <div class="book"> <a href="https://www.goodreads.com/book/show/58913358.A_Story_of_Yesterday" target="_blank"><img
+        <div class="book"> 
+            <a href="https://www.goodreads.com/book/show/58913358.A_Story_of_Yesterday" target="_blank"><img
             class="cover"
             src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630609122i/58913358.jpg"
-            alt="A Story of Yesterday by Sergio Cobo"></a> </div>
+            alt="A Story of Yesterday by Sergio Cobo"></a> 
+            <div class="rating">
+                ★★
+            </div>
+        </div>
         
-        <div class="book"> <a href="https://www.goodreads.com/book/show/4406.East_of_Eden" target="_blank"><img
+        <div class="book"> 
+            <a href="https://www.goodreads.com/book/show/4406.East_of_Eden" target="_blank"><img
             class="cover"
             src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1639969375i/4406.jpg"
-            alt="East of Eden by John Steinbeck"></a> </div>
+            alt="East of Eden by John Steinbeck"></a> 
+            <div class="rating">
+                ★★★★<span class="half-star">★</span>
+            </div>
+        </div>
         
         <div class="book"> <a href="https://www.goodreads.com/book/show/128029.A_Thousand_Splendid_Suns"
                 target="_blank"><img class="cover"
